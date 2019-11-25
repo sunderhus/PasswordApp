@@ -1,0 +1,15 @@
+{
+  "name": "senhasapp",
+  "version": "1.0.0",
+  "description": "App de geração de senhas.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "Matheus Sunderhus",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
