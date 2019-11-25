@@ -8,5 +8,5 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //porta da aplicação
 app.listen(PORT, function () {
-    console.log(`aplicação rodando na porta: ${PORT}!`);
+    console.log(`Aplicação rodando na porta: ${PORT}!`);
 });
