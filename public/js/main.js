@@ -1,3 +1,6 @@
+
+
+
 //seta Dom elements, que serão manipulados.
 const divResultado = document.getElementById('result');
 const checkBoxTamanho = document.getElementById('length');
@@ -33,6 +36,34 @@ clipboard.addEventListener('click', () => {
     alert('Senha copiada com sucesso.');
 });
 
+//remove espaços em branco
+const removeSpaces = (string) => {
+    return string.replace(' ', '').split('');
+}
+// Core do processo de suffle
+const suffle = (string) => {
+    let arrayA = [...removeSpaces(string)];
+    let arrayB = [];
+    let size = arrayA.length - 1;
+    //embaralha jogando os dados em um segundo array
+    for (let i = 0; i <= size; i++) {
+        let indexItem = Math.floor(Math.random() * arrayA.length);
+        let itemSelecionado = arrayA[indexItem]
+        arrayA.splice(arrayA.indexOf(itemSelecionado), 1)
+        arrayB.push(itemSelecionado);
+    };
+    // retira os valores do array para retornar uma string
+    let chars = arrayB.values()
+    let resp = '';
+
+    for (char of chars) {
+        resp += char;
+    }
+    return resp;
+}
+
+
+//Geração do Password
 const generatePassword = (lower, upper, number, symbol, length) => {
     let password = '';
     const quantidadeSelecionada = lower + upper + number + symbol;
@@ -57,15 +88,14 @@ const generatePassword = (lower, upper, number, symbol, length) => {
         });
     }
 
-    const passwordFinal = password.slice(0, length);
-
+    const passwordFinal = suffle(password.slice(0, length));
     return passwordFinal;
 }
 
 
 //geração da senha
 btnGerar.addEventListener('click', () => {
-    const length = +checkBoxTamanho.value;
+    const length = (+checkBoxTamanho.value > 20 ? 20 : +checkBoxTamanho.value);
     const hasLower = checkBoxMinusculas.checked;
     const hasUpper = checkBoxMaiusculas.checked;
     const hasNumber = checkBoxNumeros.checked;

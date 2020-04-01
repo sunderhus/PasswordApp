@@ -50,6 +50,11 @@ input[type="checkbox"] {
   height: 50px;
   width: 100%;
   border-radius: 4px;
+  overflow:auto;
+
+}
+.result-container::-webkit-scrollbar{
+  display: none;
 }
 
 .result-container #result {
@@ -60,9 +65,12 @@ input[type="checkbox"] {
 .result-container .btn {
   font-size: 20px;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 5px;
   right: 5px;
-  height: 40px;
+  height: 42px;
   width: 40px;
 }
 
@@ -71,9 +79,14 @@ input[type="checkbox"] {
   color: #fff;
   cursor: pointer;
   font-size: 16px;
-  padding: 8px 12px;
+  padding: 12px 12px;
   background-color: #393947;
   border-radius: 4px;
+  transition: filter 0.25s linear;
+}
+
+.btn:hover{
+  filter: brightness(0.9);
 }
 
 .btn-large {
